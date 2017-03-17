@@ -12,14 +12,14 @@ BUILD_BASE	= build
 FW_BASE		= firmware
 
 # Base directory for the compiler
-XTENSA_TOOLS_ROOT ?= /opt/Espressif/crosstool-NG/builds/xtensa-lx106-elf/bin
+XTENSA_TOOLS_ROOT ?= /home/vasyas/workspace/esp-open-sdk/xtensa-lx106-elf/bin
 
 #Extra Tensilica includes from the ESS VM
-SDK_EXTRA_INCLUDES ?= /opt/Espressif/ESP8266_SDK/include
-SDK_EXTRA_LIBS ?= /opt/xtensa-lx106-elf/lib/gcc/xtensa-lx106-elf/4.8.2/
+SDK_EXTRA_INCLUDES ?= /home/vasyas/workspace/esp-open-sdk/sdk/include
+SDK_EXTRA_LIBS ?= /home/vasyas/workspace/esp-open-sdk/xtensa-lx106-elf/lib/gcc/xtensa-lx106-elf/4.8.5
 
 # base directory of the ESP8266 SDK package, absolute
-SDK_BASE	?= /opt/Espressif/ESP8266_SDK
+SDK_BASE	?= /home/vasyas/workspace/esp-open-sdk/sdk
 
 #Esptool.py path and port
 ESPTOOL		?= esptool
@@ -50,7 +50,7 @@ GZIP_COMPRESSION = "yes"
 # compiler flags using during compilation of source files
 CFLAGS		= -Os -ggdb -std=c99 -Werror -Wpointer-arith -Wundef -Wall -Wl,-EL -fno-inline-functions \
 		-nostdlib -mlongcalls -mtext-section-literals  -D__ets__ -DICACHE_FLASH \
-		-Wno-address -Wno-unused-function -Wno-unused-but-set-variable
+		-Wno-address -Wno-unused-function -Wno-unused-but-set-variable -Wno-parentheses -Wno-implicit-function-declaration
 
 # linker flags used to generate the main object file
 LDFLAGS		= -nostdlib -Wl,--no-check-sections -u call_user_start -Wl,-static -L$(SDK_EXTRA_LIBS)
